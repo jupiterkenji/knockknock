@@ -6,17 +6,17 @@ namespace api.Service
     {
         enum Triangle { Scalene, Isosceles, Equilateral, Error }
 
-        public string Calculate(int a, int b, int c)
+        public string Calculate(int side1, int side2, int side3)
         {
-            if (a < 1 || b < 1 || c < 1)
+            if (side1 < 1 || side2 < 1 || side3 < 1)
             {
                 return Triangle.Error.ToString();
             }
-            else if (a == b && b == c)
+            else if (side1 == side2 && side2 == side3)
             {
                 return Triangle.Equilateral.ToString();
             }
-            else if (a == b || b == c || a == c)
+            else if (side1 == side2 || side2 == side3 || side1 == side3)
             {
                 return Triangle.Isosceles.ToString();
             }

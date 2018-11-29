@@ -6,44 +6,44 @@ namespace api.Service
     {
         const long minInput = -93;
         const long maxInput = 93;
-        public int Calculate(long n)
+        public int Calculate(long number)
         {
-            if (n <= minInput || n >= maxInput)
+            if (number <= minInput || number >= maxInput)
             {
-                throw new ArgumentException($"Invalid input '{n}'. It should be between -92 and 92");
+                throw new ArgumentException($"Invalid input '{number}'. It should be between -92 and 92");
             }
 
-            return CalculateFibonacci(n);
+            return CalculateFibonacci(number);
         }
 
-        int CalculateFibonacci(long n)
+        int CalculateFibonacci(long number)
         {
-            var sign = GetSign(n);
+            var sign = GetSign(number);
 
-            n =  Math.Abs(n);
+            number =  Math.Abs(number);
 
-            if (n == 1 || n == 2)
+            if (number == 1 || number == 2)
             {
                 return 1 * sign;
             }
 
-            var fibonacci = new int[n];
+            var fibonacci = new int[number];
             fibonacci[0] = 1;
             fibonacci[1] = 1;
-            for (var index = 2; index <= n-1;index++)
+            for (var index = 2; index <= number-1;index++)
             {  
                 fibonacci[index] = fibonacci[index - 2] + fibonacci[index - 1];
             }
 
-            return fibonacci[n-1] * sign;
+            return fibonacci[number-1] * sign;
         }
 
-        int GetSign(long n)
+        int GetSign(long number)
         {
-            if (n < 0)
+            if (number < 0)
             {
-                n = Math.Abs(n);
-                if (IsEven(n))
+                number = Math.Abs(number);
+                if (IsEven(number))
                 {
                     return -1;
                 }
@@ -52,9 +52,9 @@ namespace api.Service
             return 1;
         }
 
-        bool IsEven(long n)
+        bool IsEven(long number)
         {
-            return n % 2 == 0;
+            return number % 2 == 0;
         }
     }
 }
