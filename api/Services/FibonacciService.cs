@@ -22,20 +22,31 @@ namespace api.Service
 
             number =  Math.Abs(number);
 
-            if (number == 1 || number == 2)
+            // if (number == 1 || number == 2)
+            // {
+            //     return 1 * sign;
+            // }
+
+            // var fibonacci = new int[number];
+            // fibonacci[0] = 1;
+            // fibonacci[1] = 1;
+            // for (var index = 2; index <= number-1;index++)
+            // {  
+            //     fibonacci[index] = fibonacci[index - 2] + fibonacci[index - 1];
+            // }
+
+            // return fibonacci[number-1] * sign;
+
+            int a = 0;
+            int b = 1;
+
+            for (int i = 0; i < number; i++)
             {
-                return 1 * sign;
+                int temp = a;
+                a = b;
+                b = temp + b;
             }
-
-            var fibonacci = new int[number];
-            fibonacci[0] = 1;
-            fibonacci[1] = 1;
-            for (var index = 2; index <= number-1;index++)
-            {  
-                fibonacci[index] = fibonacci[index - 2] + fibonacci[index - 1];
-            }
-
-            return fibonacci[number-1] * sign;
+            return a * sign;
         }
 
         int GetSign(long number)
